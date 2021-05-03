@@ -21,4 +21,5 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('ip', views.your_ip, name='ip'),
     path('admin/', admin.site.urls),
+    path('test', views.test_user, name='test')
 ]

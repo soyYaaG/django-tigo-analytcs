@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block container %}
+    <div class="row mt-2">
+        <div class="col-md-8 col-sm-12 offset-2">
+            <form action="{% url 'test' %}" method="POST">
+                {% csrf_token %}
+
+                {% if form.errors %}
+                <div class="alert alert-danger">
+                    {% for error in form.non_field_errors %}
+                        {{ error }} <br />
+                    {% endfor %}
+
+                    {{ form.errors }}
+                </div>
+                {% endif %}
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" placeholder="Nombre(s)" id="nombre" name="nombre" />
+                    <label for="nombre">Nombre(s)</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" placeholder="Apellido(s)" id="apellido" name="apellido" />
+                    <label for="apellido">Apellido(s)</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" placeholder="Correo electrónico" id="email" name="email" />
+                    <label for="email">Correo electrónico</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" placeholder="Edad" id="edad" name="edad" />
+                    <label for="edad">Edad</label>
+                </div>
+
+                <div class="mt-3 mb-3">
+                    <button type="submit" class="btn btn-primary form-control">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
