@@ -12,27 +12,65 @@
                         {{ error }} <br />
                     {% endfor %}
 
-                    {{ form.errors }}
+                    <!-- {{ form.errors }} -->
                 </div>
                 {% endif %}
 
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" placeholder="Nombre(s)" id="nombre" name="nombre" />
+                    <input 
+                        type="text"
+                        class="form-control {% if form.nombre.errors %}is-invalid{% endif %}"
+                        placeholder="Nombre(s)"
+                        id="nombre"
+                        name="nombre"
+                        value="{% if form.errors %}{{ form.nombre.value }}{% endif %}"
+                    />
                     <label for="nombre">Nombre(s)</label>
+                    <div class="invalid-feedback">
+                        {% for error in form.nombre.errors %}
+                            {{ error }}
+                        {% endfor %}
+                    </div>
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" placeholder="Apellido(s)" id="apellido" name="apellido" />
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        placeholder="Apellido(s)" 
+                        id="apellido" 
+                        name="apellido"
+                        value="{% if form.errors %}{{ form.apellido.value }}{% endif %}"
+                    />
                     <label for="apellido">Apellido(s)</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control" placeholder="Correo electrónico" id="email" name="email" />
+                    <input 
+                        type="email" 
+                        class="form-control {% if form.email.errors %}is-invalid{% endif %}" 
+                        placeholder="Correo electrónico" 
+                        id="email" 
+                        name="email"
+                        value="{% if form.errors %}{{ form.email.value }}{% endif %}"
+                    />
                     <label for="email">Correo electrónico</label>
+                    <div class="invalid-feedback">
+                        {% for error in form.email.errors %}
+                            {{ error }}
+                        {% endfor %}
+                    </div>
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input type="number" class="form-control" placeholder="Edad" id="edad" name="edad" />
+                    <input 
+                        type="number" 
+                        class="form-control" 
+                        placeholder="Edad" 
+                        id="edad" 
+                        name="edad"
+                        value="{% if form.errors %}{{ form.edad.value }}{% endif %}" 
+                    />
                     <label for="edad">Edad</label>
                 </div>
 
