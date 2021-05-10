@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     # local apps
     'analytics',
+    'user',
 ]
 
 MIDDLEWARE = [
@@ -73,6 +74,8 @@ TEMPLATES = [
         },
     },
 ]
+
+AUTH_USER_MODEL = 'user.User'
 
 WSGI_APPLICATION = 'analytics.wsgi.application'
 
